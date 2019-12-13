@@ -19,6 +19,7 @@
     <modules>
         <module>server-cucumber</module>
         <module>server-api</module>
+        <module>web</module>
     </modules>
 
     <properties>
