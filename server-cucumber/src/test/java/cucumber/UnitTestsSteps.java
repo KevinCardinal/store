@@ -31,7 +31,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class UnitTestSteps {
+public class UnitTestsSteps {
 
     private CustomerRepositoryImpl customerRepositoryImpl;
     private List<Customer> values;

@@ -5,7 +5,9 @@ import be.wavenet.technocite.store.server.dto.CustomerDto;
 import be.wavenet.technocite.store.server.dto.InventoryDto;
 import be.wavenet.technocite.store.server.dto.MarketDto;
 import be.wavenet.technocite.store.server.dto.ProductDto;
+import be.wavenet.technocite.store.server.model.Market;
 import be.wavenet.technocite.store.server.repository.CustomerRepository;
+import be.wavenet.technocite.store.server.repository.MarketRepository;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -17,11 +19,15 @@ public class ApiControllerImpl implements ApiController {
 
     private CustomerRepository customerRepository;
 
+    private MarketRepository marketRepository;
+
     private CustomerConverter customerConverter;
 
     public ApiControllerImpl(CustomerRepository customerRepository,
+                             MarketRepository marketRepository,
                              CustomerConverter customerConverter) {
         this.customerRepository = customerRepository;
+        this.marketRepository = marketRepository;
         this.customerConverter = customerConverter;
     }
 
@@ -33,7 +39,7 @@ public class ApiControllerImpl implements ApiController {
 
     @Override
     public List<String> getLocalities() {
-        throw new UnsupportedOperationException("Not supported yet");
+        return marketRepository.findAll().stream().map(Market::getLocality).distinct().collect(toList());
     }
 
     @Override
