@@ -3,18 +3,26 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {DofusComponent} from './features/dofus/dofus.component';
+import {CalculatorComponent} from "./features/calculator/calculator.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CustomerRepository} from "./core/repositories/customer-repository.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DofusComponent
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CustomerRepository
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

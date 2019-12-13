@@ -1,21 +1,22 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {CalculatorComponent} from "./features/calculator/calculator.component";
 
 
 const routes: Routes = [
-    {
-        path: 'calculator',
-        loadChildren: './features/dofus/dofus.module#DofusModule'
-    },
-    {
-        path: '',
-        redirectTo: '/dofus/xp',
-        pathMatch: 'full'
-    }
+  {
+    path: 'calculator',
+    component: CalculatorComponent
+  },
+  {
+    path: '',
+    redirectTo: '/calculator',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

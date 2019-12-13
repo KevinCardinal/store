@@ -1,0 +1,16 @@
+<h1>Calculator</h1>
+<div class="d-flex">
+  <form class="d-flex" [formGroup]="calculatorForm" (ngSubmit)="onSubmit(calculatorForm.value)">
+    <div>
+      <input type="number" class="form-control" id="x" name="x" formControlName="x">
+    </div>
+    <span class="pl-2 pr-2 m-auto"> + </span>
+    <div>
+      <input type="number" class="form-control" id="y" name="y" formControlName="y">
+    </div>
+    <button class="button ml-2 mr-2 btn btn-dark" type="submit"> = </button>
+  </form>
+  <div>
+    <input type="number" [(ngModel)]="result" class="form-control" id="z" name="z" disabled>
+  </div>
+</div>
