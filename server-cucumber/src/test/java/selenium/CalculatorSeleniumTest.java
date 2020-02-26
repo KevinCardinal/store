@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.URLDecoder;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculatorSeleniumTest {
@@ -19,8 +21,8 @@ public class CalculatorSeleniumTest {
     public static void setup() {
         String path = CalculatorSeleniumTest.class.getClassLoader()
                 .getResource("driver/geckodriver.exe")
-                .getPath();
-        System.setProperty("webdriver.gecko.driver", path);
+                .getFile();
+        System.setProperty("webdriver.gecko.driver", URLDecoder.decode(path));
         driver = new FirefoxDriver();
         driverWait = new WebDriverWait(driver, 10);
         driver.get("http://localhost:4200");
