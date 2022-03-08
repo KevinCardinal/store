@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/store',
+    redirectTo: '/calculator',
     pathMatch: 'full'
   }
 ];
