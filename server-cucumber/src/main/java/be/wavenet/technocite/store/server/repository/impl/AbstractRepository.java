@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectReader;
 import org.springframework.core.io.ResourceLoader;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
                               String csvFile,
                               Class<T> type) {
         try {
-            File file = resourceLoader.getResource(csvFile).getFile();
+            InputStream file = resourceLoader.getResource(csvFile).getInputStream();
             values = ((MappingIterator<T>) objectReader.forType(type).readValues(file)).readAll();
         } catch (IOException e) {
             throw new UncheckedIOException("Can't load " + csvFile, e);

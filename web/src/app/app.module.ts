@@ -7,11 +7,13 @@ import {CalculatorComponent} from "./features/calculator/calculator.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CustomerRepository} from "./core/repositories/customer-repository.service";
 import {HttpClientModule} from "@angular/common/http";
+import { StoreComponent } from './features/store/store.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,

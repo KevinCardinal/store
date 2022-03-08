@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CalculatorComponent} from "./features/calculator/calculator.component";
+import {StoreComponent} from "./features/store/store.component";
 
 
 const routes: Routes = [
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: CalculatorComponent
   },
   {
+    path: 'store',
+    component: StoreComponent
+  },
+  {
     path: '',
-    redirectTo: '/calculator',
+    redirectTo: '/store',
     pathMatch: 'full'
   }
 ];
