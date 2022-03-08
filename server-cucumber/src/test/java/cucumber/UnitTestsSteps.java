@@ -14,9 +14,7 @@ import io.cucumber.java.en.When;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UncheckedIOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -49,13 +47,13 @@ public class UnitTestsSteps {
             ResourceLoader resourceLoader = mock(ResourceLoader.class);
 
             Resource resource = mock(Resource.class);
-            File file = new File("");
+            InputStream file = new ByteArrayInputStream(new byte[0]);
             MappingIterator<Object> mappingIterator = mock(MappingIterator.class);
 
             when(resourceLoader.getResource(any(String.class))).thenReturn(resource);
-            when(resource.getFile()).thenReturn(file);
+            when(resource.getInputStream()).thenReturn(file);
             when(objectReader.forType(any(Class.class))).thenReturn(objectReader);
-            when(objectReader.readValues(any(File.class))).thenReturn(mappingIterator);
+            when(objectReader.readValues(any(InputStream.class))).thenReturn(mappingIterator);
             when(mappingIterator.readAll()).thenReturn(objects);
 
             return new CustomerRepositoryImpl(objectReader, resourceLoader, "");
